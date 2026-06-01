@@ -1,0 +1,169 @@
+<!--
+Names: Suhani Pandit and Raidah Tahiya
+Date Created: February 11, 2026
+Description: This file contains the main structure of our Pizza Clicker game. It organizes the layout
+             of the page by dividing sections of the game into components including the header, scoreboard,
+             pizza click area, upgrades, rewards, and help panel. This page also connects to the CSS
+             and JavaScript pages used to further develop this game.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Clicker!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Pizza Clicker!</h1>
+    </header>
+
+    <button id="help-btn">? Help</button>
+
+    <div id="help-panel">
+        <div id="help-content">
+            <button id="help-close">✕</button>
+            <h2>How to Play</h2>
+            <p>Click the pizza to earn pizzas (coins). Spend coins on upgrades to earn faster!</p>
+            <h3>Upgrades</h3>
+            <ul>
+                <li><strong>Oven</strong> – +1 pizza per click. Cost starts at 100.</li>
+                <li><strong>Extra Cheese</strong> – +3 pizzas per click. Cost starts at 150.</li>
+                <li><strong>Chef</strong> – +5 pizzas per click. Cost starts at 300.</li>
+                <li><strong>Special Sauce</strong> – Starts an auto-clicker. Each purchase speeds it up. Cost starts at
+                    200.</li>
+            </ul>
+            <p>All upgrade costs increase by 1.5× after each purchase.</p>
+            <h3>Rewards</h3>
+            <ul>
+                <li><strong>First Slice</strong> – Make 50 pizzas total.</li>
+                <li><strong>Pizza Apprentice</strong> – Make 100 pizzas total.</li>
+                <li><strong>Bronze Baker</strong> – Make 400 pizzas total.</li>
+                <li><strong>Silver Chef</strong> – Make 1000 pizzas total.</li>
+                <li><strong>Pizza Master</strong> – Make 2000 pizzas total.</li>
+                <li><strong>Upgrade Unlocked</strong> – Purchase your first upgrade.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <div class="scoreboard">
+            <div id="scoretitle">
+                <h1>SCOREBOARD</h1>
+            </div>
+            <div class="score-row">
+                <span>Pizzas Now:</span>
+                <strong id="pizza-count">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Total Pizza Ever:</span>
+                <strong id="total-pizza">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Per Click:</span>
+                <strong id="click-value">1</strong>
+            </div>
+            <div id="coins">
+                <img id="coin" src="images/coin.png" width="40" />
+                <h2>0</h2>
+            </div>
+        </div>
+
+        <div id="click-area">
+            <img id="pizza" src="images/pizza_slice.png" alt="Click the pizza!" />
+        </div>
+
+        <div id="right-col">
+
+            <div class="upgrades">
+                <div class="title">
+                    <h1>UPGRADES</h1>
+                </div>
+                <div id="purchase">
+
+                    <div class="updatebox">
+                        <input type="button" value="BUY" data-upgrade="oven" />
+                        <div class="upgrade-item">
+                            <h3>OVEN</h3>
+                            <p id="cost-oven">Cost: 100</p>
+                            <p>+1 click</p>
+                        </div>
+                        <div class="count">
+                            <h2 id="count-oven">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="updatebox">
+                        <input type="button" value="BUY" data-upgrade="extracheese" />
+                        <div class="upgrade-item">
+                            <h3>EXTRA CHEESE</h3>
+                            <p id="cost-extracheese">Cost: 150</p>
+                            <p>+3 click</p>
+                        </div>
+                        <div class="count">
+                            <h2 id="count-extracheese">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="updatebox">
+                        <input type="button" value="BUY" data-upgrade="chef" />
+                        <div class="upgrade-item">
+                            <h3>CHEF</h3>
+                            <p id="cost-chef">Cost: 300</p>
+                            <p>+5 click</p>
+                        </div>
+                        <div class="count">
+                            <h2 id="count-chef">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="updatebox">
+                        <input type="button" value="BUY" data-upgrade="specialsauce" />
+                        <div class="upgrade-item">
+                            <h3>SPECIAL SAUCE</h3>
+                            <p id="cost-specialsauce">Cost: 200</p>
+                            <p>Auto-click!</p>
+                        </div>
+                        <div class="count">
+                            <h2 id="count-specialsauce">0</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="rewards">
+                <div class="title">
+                    <h1>REWARDS</h1>
+                </div>
+                <div class="prizes">
+                    <img id="hat" src="images/firstpizza.png" title="First Slice - 50 pizzas" width="60" />
+                    <img id="trophy1" src="images/pizzaman.png" title="Pizza Apprentice - 100 pizzas" width="60" />
+                    <img id="trophy2" src="images/bronze.png" title="Bronze Baker - 400 pizzas" width="60" />
+                    <img id="trophy3" src="images/silver.png" title="Silver Chef - 1000 pizzas" width="60" />
+                    <img id="trophy4" src="images/trophy.png" title="Pizza Master - 2000 pizzas" width="60" />
+                    <img id="firstupgrade" src="images/upgrade.png" alt="First Upgrade" title="First Upgrade purchased"
+                        width="60" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="rewardmsg">
+        <h2>REWARD UNLOCKED!</h2>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
